@@ -1,0 +1,89 @@
+LET WELCOME_TEXT BE """
+W         W    EEEEE    L        CCCCC     OOOO     M       M    EEEEE
+W         W    E        L        C        O    O    MM     MM    E
+W    W    W    EEEE     L        C        O    O    M M   M M    EEEE
+ W  W  W  W    E        L        C        O    O    M   M   M    E 
+  W     W      EEEEE    LLLLL    CCCCC     OOOO     M       M    EEEEE
+
+FFFFF    RRRRR      OOOO     M     M
+F        R    R    O    O    MM   MM
+FFFFF    RRRRR     O    O    M M M M
+F        R   R     O    O    M  M  M
+F        R    R     OOOO     M     M
+
+RRRRR     PPPPP     SSSSS
+R    R    P    P    S
+RRRRR     PPPPP     SSSSS
+R   R     P             S
+R    R    P         SSSSS
+
+
+"""
+
+LET PLAYER_POINT BE 0
+LET CPU_POINT BE 0
+
+OUTPUT WELCOME_TEXT
+
+FUNCTION WHILE(COUNT)
+    USE PLAYER_POINT
+    USE CPU_POINT
+    IF COUNT IS LESS THAN 3
+        LET PLAYER_DECISION BE INTEGER INPUT WITH "1.ROCK, 2.PAPER, 3.SCISSORS  "
+        LET CPU_DECISION BE RANDOM INTEGER BETWEEN 1 AND 3
+        IF PLAYER_DECISION IS EQUAL TO 1
+            IF CPU_DECISION IS EQUAL TO 1
+                OUTPUT "COMPUTER CHOSE ROCK"
+                OUTPUT "TIED"
+                WHILE(COUNT + 1)
+            ELSE IF CPU_DECISION IS EQUAL TO 2
+                OUTPUT "COMPUTER CHOSE ROCK"
+                OUTPUT "CPU WINS"
+                LET CPU_POINT BE CPU_POINT + 1
+                WHILE(COUNT + 1)
+            ELSE IF CPU_DECISION IS EQUAL TO 3
+                OUTPUT "COMPUTER CHOSE ROCK"
+                OUTPUT "PLAYER WINS"
+                LET PLAYER_POINT BE PLAYER_POINT + 1
+                WHILE(COUNT + 1)
+
+        ELSE IF PLAYER_DECISION IS EQUAL TO 2
+            IF CPU_DECISION IS EQUAL TO 1
+                OUTPUT "COMPUTER CHOSE PAPER"
+                OUTPUT "PLAYER WINS"
+                LET PLAYER_POINT BE PLAYER_POINT + 1
+                WHILE(COUNT + 1)
+            ELSE IF CPU_DECISION IS EQUAL TO 2
+                OUTPUT "COMPUTER CHOSE PAPER"
+                OUTPUT "TIED"
+                WHILE(COUNT + 1)
+            ELSE IF CPU_DECISION IS EQUAL TO 3
+                OUTPUT "COMPUTER CHOSE PAPER"
+                OUTPUT "PLAYER WINS"
+                LET CPU_POINT BE CPU_POINT + 1
+                WHILE(COUNT + 1)
+                
+        ELSE IF PLAYER_DECISION IS EQUAL TO 3
+            IF CPU_DECISION IS EQUAL TO 1
+                OUTPUT "COMPUTER CHOSE SCISSORS"
+                OUTPUT "CPU WINS"
+                LET CPU_POINT BE CPU_POINT + 1
+                WHILE(COUNT + 1)
+            ELSE IF CPU_DECISION IS EQUAL TO 2
+                OUTPUT "COMPUTER CHOSE SCISSORS"
+                OUTPUT "PLAYER WINS"
+                LET PLAYER_POINT BE PLAYER_POINT + 1
+                WHILE(COUNT + 1)
+            ELSE IF CPU_DECISION IS EQUAL TO 3
+                OUTPUT "COMPUTER CHOSE SCISSORS"
+                OUTPUT "TIED"
+                WHILE(COUNT + 1)
+      
+WHILE(0)           
+
+IF PLAYER_POINT IS EQUAL TO CPU_POINT
+    OUTPUT "TIEDDDD"
+ELSE IF PLAYER_POINT IS GREATER THAN CPU_POINT
+    OUTPUT "YOU WINN"
+ELSE
+    OUTPUT "YOU LOSE"
